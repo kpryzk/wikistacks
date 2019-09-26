@@ -33,6 +33,12 @@ const Page = db.define('page', {
   status: Sequelize.ENUM('open', 'closed')
 });
 
+Page.beforeValidate((page => {
+  page.slug = page.title.replace(/\s/g, '_').replace(/\W/g, '')
+}))
+
+Page.belongsTo(User, {as: 'author'});
+
 module.exports = {
   db, Page, User
 }

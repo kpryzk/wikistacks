@@ -32,7 +32,12 @@ module.exports = () =>
           >Article Content</label
         >
         <div class="col-sm-10">
-          <textarea id="content" name="content" type="text" class="form-control"></textarea>
+          <textarea
+            id="content"
+            name="content"
+            type="text"
+            class="form-control"
+          ></textarea>
         </div>
       </div>
 
@@ -40,6 +45,16 @@ module.exports = () =>
         <label for="status" class="col-sm-2 control-label">Status</label>
         <div class="col-sm-10">
           <input id="status" name="status" type="text" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="content" class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-10">
+          <select name="status">
+            <option status="open">open</option>
+            <option status="closed">closed</option>
+          </select>
         </div>
       </div>
 

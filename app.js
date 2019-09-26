@@ -17,12 +17,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false}))
 
-app.get("/", (req, res) => {
-  res.send(layout(""));
-})
-
 app.use('/wiki', wikiRouter)
-app.use('/user', userRouter)
+app.use('/users', userRouter)
 
 app.get("/", (req, res) => {
   res.redirect("/wiki");
@@ -32,8 +28,8 @@ app.get("/", (req, res) => {
 const PORT = 3000;
 
 const init = async () => {
-  await User.sync({force: true})
-  await Page.sync({force: true})
+  await User.sync()
+  await Page.sync()
 
   app.listen(PORT, () => {
     console.log(`App listening in port ${PORT}`);
